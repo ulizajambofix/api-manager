@@ -85,3 +85,12 @@ Dockerfile              # PHP-FPM app image
 - `docker compose up --build`
 - Services: app (php-fpm), nginx, postgres, redis, node
 
+
+
+## Troubleshooting
+
+- If you use `SESSION_DRIVER=database`, ensure the `sessions` table exists by running migrations:
+  - `php artisan migrate`
+- If you already migrated before this scaffold update, run:
+  - `php artisan migrate`
+
