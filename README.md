@@ -89,9 +89,6 @@ Dockerfile              # PHP-FPM app image
 
 ## Troubleshooting
 
-- If you see `Route [login] not defined`, ensure auth web routes exist (this scaffold now includes `login`, `register`, `password.request`, and `verification.notice`) and clear route cache:
-  - `php artisan route:clear`
-
 - If you use `SESSION_DRIVER=database`, ensure the `sessions` table exists by running migrations:
   - `php artisan migrate`
 - If you already migrated before this scaffold update, run:
