@@ -54,6 +54,26 @@ Dockerfile              # PHP-FPM app image
 - Inertia + Vue 3 reusable components (DataTable, Modal, FormInput) and pages.
 - Dockerized local development environment.
 
+## Full Laravel App (No Manual Copy/Paste)
+
+Yes — use the bootstrap script in this repo to initialize a complete Laravel application in-place and keep all portal files:
+
+```bash
+bash scripts/init-full-laravel-app.sh
+```
+
+Then run:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+composer require laravel/sanctum inertiajs/inertia-laravel darkaonline/l5-swagger
+npm install
+php artisan migrate --seed
+php artisan serve
+npm run dev
+```
+
 ## Setup
 
 1. Copy this repository into a Laravel 12 application skeleton (or add framework bootstrap files).
@@ -88,6 +108,9 @@ Dockerfile              # PHP-FPM app image
 
 
 ## Troubleshooting
+
+- If you see `Route [login] not defined`, ensure auth web routes exist (this scaffold now includes `login`, `register`, `password.request`, and `verification.notice`) and clear route cache:
+  - `php artisan route:clear`
 
 - If you use `SESSION_DRIVER=database`, ensure the `sessions` table exists by running migrations:
   - `php artisan migrate`
