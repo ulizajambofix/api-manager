@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  title: API Management Portal
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths:
+  /api/dashboard/summary:
+    get:
+      summary: Dashboard summary metrics
+      responses:
+        '200':
+          description: Summary response
+  /api/apis:
+    get:
+      summary: List APIs
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create API
+      responses:
+        '201': { description: Created }
