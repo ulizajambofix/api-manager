@@ -12,6 +12,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardPageController::class)->name('dashboard');
+    Route::get('/apis', fn () => Inertia::render('Apis/Index'))->name('apis.index');
+    Route::get('/api-keys', fn () => Inertia::render('ApiKeys/Index'))->name('api-keys.index');
+    Route::get('/logs', fn () => Inertia::render('Logs/Index'))->name('logs.index');
 });
 
 Route::middleware('auth')->group(function () {
